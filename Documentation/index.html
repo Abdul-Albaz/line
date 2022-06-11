@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>Template Documentation Template</title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<style type="text/css" media="screen">
+		p, table, hr, .box { margin-bottom:25px; }
+		.box p { margin-bottom:10px; }
+	</style>
+</head>
+
+
+<body>
+	<div class="container">
+	
+		<h3 class="center alt">&ldquo;Lines&rdquo; Documentation by &ldquo;Aleksa Racovic&rdquo; v1.0</h3>
+		
+		<hr>
+		
+		<h1 class="center">&ldquo;Lines&rdquo;</h1>
+		
+		<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Created: 28/9/2021<br>
+					By: Aleksa Racovic<br>
+					Email: <a href="mailto:aleksa.racovic@gmail.com">aleksa.racovic@gmail.com</a>
+					</strong>
+				</p>
+			</div><!-- end div .span-6 -->		
+	
+			<div class="span-12 last">
+				<p class="prepend-top append-0">Thank you for purchasing my game template. If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form <a href="http://themeforest.net/user/NeonSpaceFighter">here</a>. Thanks so much!</p>
+			</div>
+		</div><!-- end div .borderTop -->
+		
+		<hr>
+		
+		<h2 id="toc" class="alt">Table of Contents</h2>
+		<ol class="alpha">
+			<li><a href="#howToOpen">How to open this project in Unity?</a></li>
+			<li><a href="#howToStart">How to setup this project?</a></li>
+			<li><a href="#htmlStructure">UI Structure</a></li>
+			<li><a href="#cssFiles">Game graphics</a></li>
+			<li><a href="#javascript">Sounds</a></li>
+			<li><a href="#psdFiles">Scripts</a></li>
+
+		</ol>
+
+		<hr>
+
+		<h3 id="howToOpen"><strong>A) How to open this project in Unity?</strong> - <a href="#toc">top</a></h3>
+		<p>First you need to unzip the file that you downloaded from the codecanyon, after that open unity hub and click on the "add" button.</p>
+		<img src="assets/images/open.jpg" alt="HTML Structure" />
+		<p>After that find the folder that's created when you unzipped the file, click on it, and then click on the "Select folder" button</p>
+		<img src="assets/images/open2.jpg" alt="HTML Structure" />
+		<hr>
+
+		<h3 id="howToStart"><strong>B) How to setup this project?</strong> - <a href="#toc">top</a></h3>
+		<p>It it very easy to setup this projects, all you need to do is to double click on the "Game" scene, it is located inside the "Scenes" folder</p>
+		<img src="assets/images/start.jpg" width="700" />
+		<p>Once you open this scene whole project will be ready. Press the "play" button to test if it's working.</p>
+		<p>To reskin this project follow the next steps.</p>
+		<hr>
+		
+		<h3 id="htmlStructure"><strong>C) UI Structure</strong> - <a href="#toc">top</a></h3>
+		<p>All UI is inside the canvas and it is divided into "MainMenuUI" and "GameplayUI". "MainMenuUI" is the first screen you will see when the player opens the game, it contains the game tittle, new game, tutorial and settings buttons. 
+			GameplayUI is the UI that is shown when the player starts the game.
+		</p>
+		
+		<img src="assets/images/UIStructure.jpg" alt="HTML Structure" />
+		
+		<p>All UI elements are inside "Art" folder</p>
+
+		<img src="assets/images/sprites.jpg" width="400"/>
+		<br />
+		
+		<p>If you want to change UI image on any object just click on it and drag and drop your image into "Source Image"</p>
+		
+		<img src="assets/images/changeButtonNew.jpg" width="800"/>
+
+
+		<hr>
+
+		<h3 id="cssFiles"><strong>D) Prefabs</strong> - <a href="#toc">top</a></h3>
+
+		<p>All prefabs that are instantiated throughout the game are located inside the "Resources" folder.</p>  
+		
+		<img src="assets/images/gameGraphics.jpg" width="800"/>
+		
+		
+
+
+		<hr>
+		
+		<h3 id="javascript"><strong>E) Sounds</strong> - <a href="#toc">top</a></h3>
+		
+		<p>All game sounds are attached to "Sound" gameobject</p>
+		
+		<img src="assets/images/audio.jpg" width="400"/>
+		
+		<p>To change them, import your sound files into "Sound" folder, click on the sound item that you want to change and than click on "AudioClip" menu and choose your sound.</p>
+		
+		<img src="assets/images/changeButton.jpg" width="800"/>
+		
+		<hr>
+		
+		<h3 id="psdFiles"><strong>F) Scrpits</strong> - <a href="#toc">top</a></h3>
+		
+		<p>All scrpits are inside "Scripts" folder</p>
+		
+		<img src="assets/images/scripts.jpg" width="800"/>
+		
+		
+		<p>If you need to edit/change some code here is what you need to know about
+scripts:</p>
+		
+		<ul>
+			
+			<li>BallExplosion.cs – Used to activate the particle effect when the balls get destroyed</li>
+			<li>BallsPathfinder.cs – Used to find the available path between selected ball and the chosen tile</li>
+			<li>BallType.cs – It will change the sprite of the balls to the selected one from the settings menu</li>
+			<li>DestroyExplosionParticle.cs – Used the destroy the particle after particle effect has finished</li>
+			<li>MainMenuBallsAnimation.cs – Used to make a simple fade in – fade out animation of the balls in the main menu</li>
+			<li>Menus – Used for navigation through the different menus</li>
+			<li>MenuTransitionAnimation.cs – Used for fade in – fade – out animation while navigation through the different menus</li>
+			<li>SelectedBallAnimation.cs – It will make a zoom in – zoom out animation on the selected ball</li>
+			<li>Tile.cs – Used to select the ball when user tap on the tile and to check the path when user tap on the empty tile</li>
+			<li>Vars.cs – Used for static variables</li>
+			<li>ZoomInAnimation.cs – Used to create zoom in animation when user navigate through different menus</li>
+			<li>ZoomOutAnimation – Used to create zoom out animation when user navigate through different menus</li>
+ 
+		</ul>
+		
+		<hr>
+		
+		<p>Thank you so much for purchasing this game template. I'd be glad to help you if you have any questions relating to this game template. I'll do my best to assist. If you have a more general question relating to the themes on ThemeForest, you might consider visiting the forums and asking your question in the "Item Discussion" section.</p> 
+		
+		<p class="append-bottom alt large"><strong>Aleksa Racovic</strong></p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		
+		<hr class="space">
+	</div><!-- end div .container -->
+</body>
+</html>
