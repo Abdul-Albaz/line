@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3037332404275649877}
   - component: {fileID: 1537305240140441671}
-  - component: {fileID: 6809796145581905714}
   m_Layer: 0
   m_Name: Trail
   m_TagString: Untagged
@@ -141,20 +140,6 @@ TrailRenderer:
   m_MinVertexDistance: 0
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!114 &6809796145581905714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1379646595395049426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c5c21e8bb3a548018fbd0ad45cfe47b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trail: {fileID: 1537305240140441671}
-  isMoving: 1
 --- !u!1 &2404092607676810890
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,6 +153,7 @@ GameObject:
   - component: {fileID: 6446017908906908030}
   - component: {fileID: 927113159462123782}
   - component: {fileID: 114993483344437686}
+  - component: {fileID: -2809745567197152195}
   m_Layer: 0
   m_Name: Ball7
   m_TagString: Untagged
@@ -242,7 +228,7 @@ SpriteRenderer:
   m_Size: {x: 0.8685714, y: 0.8628571}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &6446017908906908030
@@ -285,6 +271,18 @@ MonoBehaviour:
   ball1: {fileID: 21300000, guid: 5c743ffec982b2f4481270d53aea8220, type: 3}
   ball2: {fileID: 21300000, guid: 5c743ffec982b2f4481270d53aea8220, type: 3}
   ball3: {fileID: 21300000, guid: 5c743ffec982b2f4481270d53aea8220, type: 3}
+--- !u!114 &-2809745567197152195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2404092607676810890}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 833dbc31bc164438b9658ba583725bde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3280347652961565514
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,7 +358,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b,
     type: 3}
-  m_Color: {r: 0.9647059, g: 0.9372549, b: 0.7764706, a: 1}
+  m_Color: {r: 0, g: 0.73333335, b: 0.9764706, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

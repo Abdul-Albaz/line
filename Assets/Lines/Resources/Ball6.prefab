@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b,
     type: 3}
-  m_Color: {r: 0.45882353, g: 0.46666667, b: 0.6156863, a: 1}
+  m_Color: {r: 1, g: 0.6117647, b: 0.18431373, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4932,8 +4932,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7044042517262157304}
   - component: {fileID: 4349666530610754065}
-  - component: {fileID: 1304162477286142829}
-  - component: {fileID: 788338590697810094}
   m_Layer: 0
   m_Name: Trail
   m_TagString: Untagged
@@ -5064,34 +5062,6 @@ TrailRenderer:
   m_MinVertexDistance: 0
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!114 &1304162477286142829
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8619465251578496911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c5c21e8bb3a548018fbd0ad45cfe47b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trail: {fileID: 4349666530610754065}
-  isMoving: 1
---- !u!114 &788338590697810094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8619465251578496911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c5c21e8bb3a548018fbd0ad45cfe47b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trail: {fileID: 4349666530610754065}
-  isMoving: 1
 --- !u!1 &8738212735414611310
 GameObject:
   m_ObjectHideFlags: 0
@@ -5105,6 +5075,7 @@ GameObject:
   - component: {fileID: 7782164909556064099}
   - component: {fileID: 5937104034698691603}
   - component: {fileID: 114943279569922328}
+  - component: {fileID: -6920949972019178155}
   m_Layer: 0
   m_Name: Ball6
   m_TagString: Untagged
@@ -5179,7 +5150,7 @@ SpriteRenderer:
   m_Size: {x: 0.87142855, y: 0.8628571}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &7782164909556064099
@@ -5222,3 +5193,15 @@ MonoBehaviour:
   ball1: {fileID: 21300010, guid: 5c743ffec982b2f4481270d53aea8220, type: 3}
   ball2: {fileID: 21300010, guid: 5c743ffec982b2f4481270d53aea8220, type: 3}
   ball3: {fileID: 21300010, guid: 5c743ffec982b2f4481270d53aea8220, type: 3}
+--- !u!114 &-6920949972019178155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8738212735414611310}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 833dbc31bc164438b9658ba583725bde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

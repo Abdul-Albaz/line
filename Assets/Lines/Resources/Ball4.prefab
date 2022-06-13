@@ -4847,7 +4847,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3186429412093907177}
   - component: {fileID: 7192334752228525079}
-  - component: {fileID: 7912706420291162159}
   m_Layer: 0
   m_Name: Trail
   m_TagString: Untagged
@@ -4978,20 +4977,6 @@ TrailRenderer:
   m_MinVertexDistance: 0
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!114 &7912706420291162159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2546545327259750122}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c5c21e8bb3a548018fbd0ad45cfe47b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trail: {fileID: 7192334752228525079}
-  isMoving: 1
 --- !u!1 &3863290669701856547
 GameObject:
   m_ObjectHideFlags: 0
@@ -5067,7 +5052,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b,
     type: 3}
-  m_Color: {r: 0.95686275, g: 0.43137255, b: 0.57254905, a: 1}
+  m_Color: {r: 0.60784316, g: 0.6117647, b: 0.6156863, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5090,6 +5075,7 @@ GameObject:
   - component: {fileID: 8102528705252880712}
   - component: {fileID: 2033897504339089172}
   - component: {fileID: 114350383435855750}
+  - component: {fileID: -5189777897658292710}
   m_Layer: 0
   m_Name: Ball4
   m_TagString: Untagged
@@ -5164,7 +5150,7 @@ SpriteRenderer:
   m_Size: {x: 0.87142855, y: 0.8628571}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &8102528705252880712
@@ -5207,3 +5193,15 @@ MonoBehaviour:
   ball1: {fileID: 21300006, guid: 5c743ffec982b2f4481270d53aea8220, type: 3}
   ball2: {fileID: 21300006, guid: 5c743ffec982b2f4481270d53aea8220, type: 3}
   ball3: {fileID: 21300006, guid: 5c743ffec982b2f4481270d53aea8220, type: 3}
+--- !u!114 &-5189777897658292710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5112617283000343853}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 833dbc31bc164438b9658ba583725bde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

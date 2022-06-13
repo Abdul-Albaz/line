@@ -10,12 +10,30 @@ public class BallsPathfinder : MonoBehaviour {
 
 	public int RowsNumber = 10;						    //Number of rows in the Vars.fields[,] 2D array
 	public int ColumnsNumber = 10;                      //Number of columns in the Vars.fields[,] 2D array
-	public int numberOfBalls = 4;                   
+	public int numberOfBalls = 7;                   
 	private int iPath=100;      
 	private GameObject tiles;             
 	private bool isFirstWave = true;				
 	private int[,] placeholderBalls;
 	private int lastScore = 0;
+
+
+
+	[SerializeField]
+	private float _editRowNum = 7;
+
+	[SerializeField]
+	private float _ballCoolectionToWin = 3;
+
+	[SerializeField]
+	private float _editColumNum = 7;
+	[SerializeField]
+	private int _firstWaveNumber = 5;
+	[SerializeField]
+	private int NumberBallsCreated = 2;
+	[SerializeField]
+	private int _numberOfBallInGame = 4;
+
 
 	// Flag variable for handling
 	// bottum up diagonal traversing
@@ -48,13 +66,14 @@ public class BallsPathfinder : MonoBehaviour {
 			}
 		}
 	}
-	/*******
-	*******
-	*******
-	*******
-	*******
-	*******
-	*******/
+	      /*******
+	      *******
+	      *******
+	      *******
+	      *******
+	      *******
+	      *******/
+
 	private void CreateTiles() {
 		for (int i=0; i < Vars.fields.GetLength(0); i++) {
 			for (int j=0; j < Vars.fields.GetLength(1); j++) {
@@ -72,7 +91,7 @@ public class BallsPathfinder : MonoBehaviour {
 	private void CreateNewBalls() {
 		int numberOfBallsToCreate;
 		if(isFirstWave) {
-			numberOfBallsToCreate = 5;														//This many balls will be created on the first wave
+			numberOfBallsToCreate = _firstWaveNumber;														//This many balls will be created on the first wave
 																							//you can add the effict the first wave on this line
 			isFirstWave = false;
 
@@ -90,9 +109,10 @@ public class BallsPathfinder : MonoBehaviour {
 				ball.transform.localPosition = new Vector2(0, 0);
 				numberOfBallsToCreate--;
 			}
-			CreatePlaceholderBalls(2);
+
+			CreatePlaceholderBalls(NumberBallsCreated);
 		}else {		
-			numberOfBallsToCreate = 2;//This many balls will be created on all waves except the first one
+			numberOfBallsToCreate = NumberBallsCreated;														//This many balls will be created on all waves except the first one
 			CheckForAvailabeFields(numberOfBallsToCreate);
 
 			ConvertPlaceholderBallsToRealBalls();
@@ -105,7 +125,7 @@ public class BallsPathfinder : MonoBehaviour {
 		}	
 	}
 
-	private void CreateNewBall(int placeholderXPos, int placeholderYPos) {//This will create a single ball when player steps on a placeholder ball
+	private void CreateNewBall(int placeholderXPos, int placeholderYPos) {					//This will create a single ball when player steps on a placeholder ball
 		int numberOfBallsToCreate = 1;
 		while(numberOfBallsToCreate != 0) {
 			int ballXPos = UnityEngine.Random.Range(0, RowsNumber);
@@ -153,7 +173,7 @@ public class BallsPathfinder : MonoBehaviour {
 Destroy(ball);
 	}
 
-	private void CreatePlaceholderBalls(int numberOfBallsToCreate) {											//This will create small placeholder balls, that will pop into real balls on the next turn
+	private void CreatePlaceholderBalls(int numberOfBallsToCreate) {											// This will create small placeholder balls, that will pop into real balls on the next turn
 																												// here we can add the effict when the ball  is try to appering
 		int availableFields = CheckForAvailabeFields(numberOfBallsToCreate);
 		if(numberOfBallsToCreate > availableFields) {
@@ -204,7 +224,7 @@ Destroy(ball);
 				if(Vars.fields[i,j] != 0) {
 					if(Vars.fields[i,j] == currentCellValue) {
 						numberOfConsecutiveBalls++;
-						if(numberOfConsecutiveBalls >= 4) {
+						if(numberOfConsecutiveBalls >= _ballCoolectionToWin) {
 							for(int y = j - numberOfConsecutiveBalls + 1; y <= j; y++) {
 								Vars.score++;
 								Vars.fields[i,y] = 0;
@@ -230,7 +250,7 @@ Destroy(ball);
 				if(Vars.fields[j,i] != 0) {
 					if(Vars.fields[j,i] == currentCellValue) {
 						numberOfConsecutiveBalls++;
-						if(numberOfConsecutiveBalls >= 4) {                              // the number of ball you can change it to collecy score Horizontally
+						if(numberOfConsecutiveBalls >= _ballCoolectionToWin) {                              // the number of ball you can change it to collecy score Horizontally
 							for (int y = j - numberOfConsecutiveBalls + 1; y <= j; y++) {
 								Vars.score++;
 								Vars.fields[y,i] = 0;
@@ -258,7 +278,8 @@ Destroy(ball);
 				if(Vars.fields[Min(Vars.fields.GetLength(0), line) - j - 1, start_col + j] != 0) {
 					if(Vars.fields[Min(Vars.fields.GetLength(0), line) - j - 1, start_col + j] == currentCellValue) {
 						numberOfConsecutiveBalls++;
-					if(numberOfConsecutiveBalls >= 4){                                    // the number of ball you can change it to collecy score Diagonally
+					if(numberOfConsecutiveBalls >= _ballCoolectionToWin)
+						{                                    // the number of ball you can change it to collecy score Diagonally
 							for (int y = 0; y < numberOfConsecutiveBalls; y++) {
 								Vars.score++;
 								Vars.fields[Min(Vars.fields.GetLength(0), line) - j - 1 + y,start_col + j - y] = 0;
@@ -302,7 +323,7 @@ Destroy(ball);
 		if(Vars.fields[i, j] != 0) {
 			if(Vars.fields[i, j] == currentCellValue) {
 				numberOfConsecutiveBalls++;
-				if(numberOfConsecutiveBalls >= 4) {								 // the number of ball you can change it to collecy score Diagonally
+				if(numberOfConsecutiveBalls >= 3) {								 // the number of ball you can change it to collecy score Diagonally
 					for (int y = 0; y < numberOfConsecutiveBalls; y++) {
 						Vars.score++;
 						Vars.fields[i - y, j - y] = 0;
@@ -355,19 +376,30 @@ Destroy(ball);
 		int[,] path = FindPath(Vars.ballStartPosX, Vars.ballStartPosY, xTarget, yTarget);
 		if(path != null) {//Check if path to the choosen location is available
 			Vars.ball.GetComponent<SelectedBallAnimation> ().enabled = false;
+		
 			Vars.ball.transform.localScale = new Vector2(1, 1);
 			StartCoroutine(BallMovement(path, xTarget, yTarget, ballColor));//Move the ball to the choosen location
 			GameObject.Find("BallMoveSound").GetComponent<AudioSource> ().Play();
 		}else {
 			Vars.fields[Vars.ballStartPosX, Vars.ballStartPosY] = ballColor;
 			Vars.ball.transform.parent = GameObject.Find("Tile" + Vars.ballStartPosX + "X" + Vars.ballStartPosY).transform;
+
+			Vars.ball.GetComponent<BuncingBallAnimation> ().enabled = true;
+			Invoke("RestartAnaimation", 0.5f);
 			GameObject.Find("NoAvailableMoveSound").GetComponent<AudioSource> ().Play();
 			
-			Debug.Log("NO PATH ");					  // van try the animation in this line for the ball when it not find the path
+			Debug.Log("NO PATH ");					                      // van try the animation in this line for the ball when it not find the path
 		}	
 	}
 
-	IEnumerator BallMovement(int[,] path, int xTarget, int yTarget, int ballColor) {
+	void RestartAnaimation()
+    {
+		Vars.ball.GetComponent<BuncingBallAnimation>().enabled = false;
+		Vars.ball.GetComponent<SelectedBallAnimation>().enabled = true;
+		CancelInvoke();
+	
+	}
+			IEnumerator BallMovement(int[,] path, int xTarget, int yTarget, int ballColor) {
 		Vars.isBallMoving = true;
         while (new Vector2(Vars.ball.transform.position.x, Vars.ball.transform.position.y) != new Vector2(xTarget, yTarget))
 		{

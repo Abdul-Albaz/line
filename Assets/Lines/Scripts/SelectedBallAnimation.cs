@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SelectedBallAnimation : MonoBehaviour {
+
     private bool up = false;
     private float scale = 1;
     

@@ -293,7 +293,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &52772264
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2257,7 +2257,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &358740912
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8286,7 +8286,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RowsNumber: 10
   ColumnsNumber: 10
-  numberOfBalls: 4
+  numberOfBalls: 7
+  _editRowNum: 7
+  _ballCoolectionToWin: 3
+  _editColumNum: 7
+  _firstWaveNumber: 5
+  NumberBallsCreated: 2
+  _numberOfBallInGame: 4
 --- !u!4 &1934834362
 Transform:
   m_ObjectHideFlags: 0
@@ -8684,7 +8690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.050980397, g: 0.050980397, b: 0.050980397, a: 1}
+  m_Color: {r: 0.050980397, g: 0.050980397, b: 0.050980397, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

@@ -4850,6 +4850,7 @@ GameObject:
   - component: {fileID: 1666785619061622120}
   - component: {fileID: 1261454540398042853}
   - component: {fileID: 114401345529041476}
+  - component: {fileID: 4193526832614543910}
   m_Layer: 0
   m_Name: Ball2
   m_TagString: Untagged
@@ -4924,7 +4925,7 @@ SpriteRenderer:
   m_Size: {x: 0.8742857, y: 0.8628571}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1666785619061622120
@@ -4967,6 +4968,18 @@ MonoBehaviour:
   ball1: {fileID: 21300012, guid: 5c743ffec982b2f4481270d53aea8220, type: 3}
   ball2: {fileID: 21300012, guid: 5c743ffec982b2f4481270d53aea8220, type: 3}
   ball3: {fileID: 21300012, guid: 5c743ffec982b2f4481270d53aea8220, type: 3}
+--- !u!114 &4193526832614543910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419495512624935421}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 833dbc31bc164438b9658ba583725bde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6189352217457282504
 GameObject:
   m_ObjectHideFlags: 0
@@ -5042,7 +5055,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b,
     type: 3}
-  m_Color: {r: 0.4862745, g: 0.72156864, b: 0.5764706, a: 1}
+  m_Color: {r: 1, g: 0.7921569, b: 0.22745098, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5062,7 +5075,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2817012858939409158}
   - component: {fileID: 4610507219467899292}
-  - component: {fileID: 1400428060982786629}
   m_Layer: 0
   m_Name: Trail
   m_TagString: Untagged
@@ -5193,17 +5205,3 @@ TrailRenderer:
   m_MinVertexDistance: 0
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!114 &1400428060982786629
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7934839079996333493}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c5c21e8bb3a548018fbd0ad45cfe47b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trail: {fileID: 4610507219467899292}
-  isMoving: 1

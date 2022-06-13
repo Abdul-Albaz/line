@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4927899135570087797}
   - component: {fileID: 1587903666981589284}
   - component: {fileID: 114653252479720752}
+  - component: {fileID: 1058854092046059711}
   m_Layer: 0
   m_Name: Ball1
   m_TagString: Untagged
@@ -87,7 +88,7 @@ SpriteRenderer:
   m_Size: {x: 0.86571425, y: 0.8628571}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &4927899135570087797
@@ -130,6 +131,18 @@ MonoBehaviour:
   ball1: {fileID: 21300002, guid: 5c743ffec982b2f4481270d53aea8220, type: 3}
   ball2: {fileID: 21300002, guid: 5c743ffec982b2f4481270d53aea8220, type: 3}
   ball3: {fileID: 21300002, guid: 5c743ffec982b2f4481270d53aea8220, type: 3}
+--- !u!114 &1058854092046059711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3095809922666219395}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 833dbc31bc164438b9658ba583725bde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5642158061660361702
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,7 +153,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7957338080953761149}
   - component: {fileID: 129586986274083089}
-  - component: {fileID: 2763683925008259144}
   m_Layer: 0
   m_Name: Trail
   m_TagString: Untagged
@@ -205,7 +217,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 1.2
+  m_Time: 1.8
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -213,23 +225,14 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.01784134
-        value: 0.35473824
+        time: 0
+        value: 0.12616158
         inSlope: 0
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.36448604
-        value: 0.35601044
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -262,8 +265,8 @@ TrailRenderer:
       m_Mode: 1
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 1
-    numCapVertices: 1
+    numCornerVertices: 0
+    numCapVertices: 0
     alignment: 0
     textureMode: 0
     shadowBias: 0.5
@@ -271,20 +274,6 @@ TrailRenderer:
   m_MinVertexDistance: 0.2
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!114 &2763683925008259144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5642158061660361702}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c5c21e8bb3a548018fbd0ad45cfe47b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trail: {fileID: 129586986274083089}
-  isMoving: 1
 --- !u!1 &6179183623597566793
 GameObject:
   m_ObjectHideFlags: 0
@@ -5197,7 +5186,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b,
     type: 3}
-  m_Color: {r: 0.20392157, g: 0.5686275, b: 0.60784316, a: 1}
+  m_Color: {r: 1, g: 0.32941177, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
