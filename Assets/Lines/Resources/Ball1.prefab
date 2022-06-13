@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1587903666981589284}
   - component: {fileID: 114653252479720752}
   - component: {fileID: 1058854092046059711}
+  - component: {fileID: 9006749000268226831}
   m_Layer: 0
   m_Name: Ball1
   m_TagString: Untagged
@@ -143,6 +144,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 833dbc31bc164438b9658ba583725bde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9006749000268226831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3095809922666219395}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5fd6e30b68a141bfb9cfc8cd3b09c5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trail: {fileID: 5642158061660361702}
 --- !u!1 &5642158061660361702
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,7 +231,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 1.8
+  m_Time: 1.5
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -238,8 +252,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.20392159, g: 0.5686275, b: 0.60784316, a: 1}
-      key1: {r: 0.32280168, g: 0.6957473, b: 0.735849, a: 1}
+      key0: {r: 1, g: 0.32941177, b: 0, a: 1}
+      key1: {r: 1, g: 0.32941177, b: 0, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}

@@ -4911,7 +4911,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.06
+  m_Time: 1.5
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -4919,30 +4919,21 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.01784134
-        value: 0.35473824
+        time: 0
+        value: 0.12616158
         inSlope: 0
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.8466943
-        value: 0.065216064
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.95294124, g: 0.43137258, b: 0.57254905, a: 1}
-      key1: {r: 1, g: 0.5896226, b: 0.7007022, a: 1}
+      key0: {r: 0.60784316, g: 0.6117647, b: 0.6156863, a: 1}
+      key1: {r: 0.60784316, g: 0.6117647, b: 0.6156863, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -4950,7 +4941,7 @@ TrailRenderer:
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
-      ctime1: 65150
+      ctime1: 65535
       ctime2: 0
       ctime3: 0
       ctime4: 0
@@ -4965,16 +4956,16 @@ TrailRenderer:
       atime5: 0
       atime6: 0
       atime7: 0
-      m_Mode: 0
+      m_Mode: 1
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 2
-    numCapVertices: 1
+    numCornerVertices: 0
+    numCapVertices: 0
     alignment: 0
     textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
-  m_MinVertexDistance: 0
+  m_MinVertexDistance: 0.2
   m_Autodestruct: 0
   m_Emitting: 1
 --- !u!1 &3863290669701856547
@@ -5076,6 +5067,7 @@ GameObject:
   - component: {fileID: 2033897504339089172}
   - component: {fileID: 114350383435855750}
   - component: {fileID: -5189777897658292710}
+  - component: {fileID: -2714185407283550742}
   m_Layer: 0
   m_Name: Ball4
   m_TagString: Untagged
@@ -5205,3 +5197,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 833dbc31bc164438b9658ba583725bde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-2714185407283550742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5112617283000343853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5fd6e30b68a141bfb9cfc8cd3b09c5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trail: {fileID: 2546545327259750122}

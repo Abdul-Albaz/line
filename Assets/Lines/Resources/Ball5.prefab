@@ -74,7 +74,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.06
+  m_Time: 1.5
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -82,30 +82,21 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.01784134
-        value: 0.35473824
+        time: 0
+        value: 0.12616158
         inSlope: 0
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.8466943
-        value: 0.065216064
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.97647065, g: 0.75294125, b: 0.37254903, a: 1}
-      key1: {r: 1, g: 0.82715636, b: 0.5330188, a: 1}
+      key0: {r: 0.73333335, g: 0.4039216, b: 1, a: 1}
+      key1: {r: 0.73333335, g: 0.4039216, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -128,16 +119,16 @@ TrailRenderer:
       atime5: 0
       atime6: 0
       atime7: 0
-      m_Mode: 0
+      m_Mode: 1
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 2
-    numCapVertices: 1
+    numCornerVertices: 0
+    numCapVertices: 0
     alignment: 0
     textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
-  m_MinVertexDistance: 0
+  m_MinVertexDistance: 0.2
   m_Autodestruct: 0
   m_Emitting: 1
 --- !u!1 &2776431116266840185
@@ -239,6 +230,7 @@ GameObject:
   - component: {fileID: 5158898258603796229}
   - component: {fileID: 114246311363382172}
   - component: {fileID: -7565394803489843445}
+  - component: {fileID: 3615189571506673354}
   m_Layer: 0
   m_Name: Ball5
   m_TagString: Untagged
@@ -368,6 +360,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 833dbc31bc164438b9658ba583725bde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3615189571506673354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7238965407004591116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5fd6e30b68a141bfb9cfc8cd3b09c5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trail: {fileID: 2057895474882860396}
 --- !u!1 &8487862802534156696
 GameObject:
   m_ObjectHideFlags: 0

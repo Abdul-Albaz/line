@@ -375,16 +375,20 @@ Destroy(ball);
 		Vars.fields[Vars.ballStartPosX, Vars.ballStartPosY] = 0;
 		int[,] path = FindPath(Vars.ballStartPosX, Vars.ballStartPosY, xTarget, yTarget);
 		if(path != null) {//Check if path to the choosen location is available
-			Vars.ball.GetComponent<SelectedBallAnimation> ().enabled = false;
+
 		
+			Vars.ball.GetComponent<SelectedBallAnimation> ().enabled = false;
+		    Vars.ball.GetComponent<DisableTrail>().enabled = true;
+
 			Vars.ball.transform.localScale = new Vector2(1, 1);
 			StartCoroutine(BallMovement(path, xTarget, yTarget, ballColor));//Move the ball to the choosen location
 			GameObject.Find("BallMoveSound").GetComponent<AudioSource> ().Play();
 		}else {
 			Vars.fields[Vars.ballStartPosX, Vars.ballStartPosY] = ballColor;
 			Vars.ball.transform.parent = GameObject.Find("Tile" + Vars.ballStartPosX + "X" + Vars.ballStartPosY).transform;
-
+			Vars.ball.GetComponent<DisableTrail>().enabled = false;
 			Vars.ball.GetComponent<BuncingBallAnimation> ().enabled = true;
+			
 			Invoke("RestartAnaimation", 0.5f);
 			GameObject.Find("NoAvailableMoveSound").GetComponent<AudioSource> ().Play();
 			
@@ -509,7 +513,9 @@ Destroy(ball);
 					if (GetNodeContents(iMazeStatus, iLeft) == (int)Status.Ready) {
 						Queue[iRear]=iLeft;
 						Origin[iRear]=iCurrent;
-						ChangeNodeContents(iMazeStatus, iLeft, (int)Status.Waiting);
+						Debug.Log(" ready");
+					
+			ChangeNodeContents(iMazeStatus, iLeft, (int)Status.Waiting);
 						iRear++;
 						Debug.Log(" WATING ");
 					}
@@ -546,6 +552,7 @@ Destroy(ball);
 
 			ChangeNodeContents(iMazeStatus, iCurrent, (int)Status.Processed);
 			iFront++;
+			Debug.Log(" process");
 		}
 
 		int[,] iMazeSolved=new int[iRows,iCols];
@@ -558,9 +565,10 @@ Destroy(ball);
 		for(int i=iFront; i>=0; i--) {
 			if (Queue[i]==iCurrent) {
 				iCurrent=Origin[i];
-				if (iCurrent==-1)
-					return ( iMazeSolved );
+				if (iCurrent == -1)
+				return ( iMazeSolved );
 				ChangeNodeContents(iMazeSolved, iCurrent, iPath);
+				Debug.Log(" stop");
 			}
 		}
 		return null;

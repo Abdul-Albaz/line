@@ -4851,6 +4851,7 @@ GameObject:
   - component: {fileID: 1261454540398042853}
   - component: {fileID: 114401345529041476}
   - component: {fileID: 4193526832614543910}
+  - component: {fileID: 6224504857716432869}
   m_Layer: 0
   m_Name: Ball2
   m_TagString: Untagged
@@ -4980,6 +4981,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 833dbc31bc164438b9658ba583725bde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6224504857716432869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419495512624935421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5fd6e30b68a141bfb9cfc8cd3b09c5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trail: {fileID: 7934839079996333493}
 --- !u!1 &6189352217457282504
 GameObject:
   m_ObjectHideFlags: 0
@@ -5139,7 +5153,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.06
+  m_Time: 1.5
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -5147,30 +5161,21 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.01784134
-        value: 0.35473824
+        time: 0
+        value: 0.12616158
         inSlope: 0
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.8466943
-        value: 0.065216064
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.48627454, g: 0.72156864, b: 0.5764706, a: 1}
-      key1: {r: 0.5149074, g: 0.8207547, b: 0.6321489, a: 1}
+      key0: {r: 1, g: 0.79215693, b: 0.22352943, a: 1}
+      key1: {r: 1, g: 0.79215693, b: 0.22352943, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -5193,15 +5198,15 @@ TrailRenderer:
       atime5: 0
       atime6: 0
       atime7: 0
-      m_Mode: 0
+      m_Mode: 1
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 2
-    numCapVertices: 1
+    numCornerVertices: 0
+    numCapVertices: 0
     alignment: 0
     textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
-  m_MinVertexDistance: 0
+  m_MinVertexDistance: 0.2
   m_Autodestruct: 0
   m_Emitting: 1
