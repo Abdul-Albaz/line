@@ -94,13 +94,8 @@ public class Menus : MonoBehaviour {
         gameplayUI.SetActive(true);
         pathFinder.enabled = true;
         score.text = "SCORE: " + Vars.score;
-        if(Vars.currentMode == 0) {
-            bestScore.text = "BEST: " + PlayerPrefs.GetInt("BestScore7x7");
-        }else if(Vars.currentMode == 1) {
-            bestScore.text = "BEST: " + PlayerPrefs.GetInt("BestScore9x9");
-        }else if(Vars.currentMode == 2) {
-            bestScore.text = "BEST: " + PlayerPrefs.GetInt("BestScore11x11");
-        }
+        bestScore.text = "BEST: " + PlayerPrefs.GetInt($"BestScore{Vars.currentMode}x{Vars.currentMode}" );
+
         bannerView.Show();
     }
 
@@ -110,25 +105,26 @@ public class Menus : MonoBehaviour {
         buttonSound.Play();
     }
 
-    public void StartTheGameSmall() {//7x7            // we can change the gride size by changeing only thre number  this for small gride size 
-        pathFinder.RowsNumber = 7;
-        pathFinder.ColumnsNumber = 7;
-        GameStartTransitionAnimation();
-        Vars.currentMode = 0;
+    public void StartTheGameSmall()
+    {
+        StartTheGame(7);
+    }
+    public void StartTheGameStandard()
+    {
+        StartTheGame(9);
     }
 
-    public void StartTheGameStandard() {//9x9       // we can change the gride size by changeing only thre number  this for normal gride size 
-        pathFinder.RowsNumber = 9;
-        pathFinder.ColumnsNumber = 9;
-        GameStartTransitionAnimation();
-        Vars.currentMode = 1;
+    public void StartTheGameLarge()
+    {
+        StartTheGame(11);
     }
 
-    public void StartTheGameLarge() {//11x11
-        pathFinder.RowsNumber = 11;
-        pathFinder.ColumnsNumber = 11;
+    public void StartTheGame(int size)
+    {
+        pathFinder.RowsNumber = size;
+        pathFinder.ColumnsNumber = size;
         GameStartTransitionAnimation();
-        Vars.currentMode = 2;
+        Vars.currentMode = size;
     }
 
     public void PauseMenu() {
@@ -205,22 +201,12 @@ public class Menus : MonoBehaviour {
     }
 
     public void UpdateScore() {
+        var scoreKey = $"BestScore{Vars.currentMode}x{Vars.currentMode}";
         score.text = "SCORE: " + Vars.score;
-        if(Vars.currentMode == 0) {
-            if(Vars.score > PlayerPrefs.GetInt("BestScore7x7")) {
-                PlayerPrefs.SetInt("BestScore7x7", Vars.score);
-                bestScore.text = "BEST: " + PlayerPrefs.GetInt("BestScore7x7");
-            }   
-        }else if(Vars.currentMode == 1) {
-            if(Vars.score > PlayerPrefs.GetInt("BestScore9x9")) {
-                PlayerPrefs.SetInt("BestScore9x9", Vars.score);
-                bestScore.text = "BEST: " + PlayerPrefs.GetInt("BestScore9x9");
-            } 
-        }else if(Vars.currentMode == 2) {
-            if(Vars.score > PlayerPrefs.GetInt("BestScore11x11")) {
-                PlayerPrefs.SetInt("BestScore11x11", Vars.score);
-                bestScore.text = "BEST: " + PlayerPrefs.GetInt("BestScore11x11");
-            } 
+        if (Vars.score > PlayerPrefs.GetInt(scoreKey))
+        {
+            PlayerPrefs.SetInt(scoreKey, Vars.score);
+            bestScore.text = "BEST: " + PlayerPrefs.GetInt(scoreKey);
         }
     }
 

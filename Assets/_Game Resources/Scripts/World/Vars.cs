@@ -9,7 +9,7 @@ public class Vars : MonoBehaviour {
     public static GameObject ball;
     public static bool isBallMoving = false;
     public static int score = 0;
-    public static int currentMode = 0;//0 - 7x7, 1 - 9x9, 2 - 11x11
+    public static int currentMode = 7;//0 - 7x7, 1 - 9x9, 2 - 11x11
 
     public static void ResetAllVariables() {
         ballStartPosX = -1;

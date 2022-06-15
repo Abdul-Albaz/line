@@ -8292,7 +8292,7 @@ MonoBehaviour:
   _ballCoolectionToWin: 3
   _editColumNum: 7
   _firstWaveNumber: 5
-  NumberBallsCreated: 3
+  NumberBallsCreated: 2
   _numberOfBallInGame: 7
 --- !u!4 &1934834362
 Transform:
@@ -8345,7 +8345,7 @@ MonoBehaviour:
   nextWaveBalls:
   - {fileID: 1597056830}
   - {fileID: 2060239514}
-  - {fileID: 1619781536}
+  - {fileID: 2060239514}
   score: {fileID: 454270388}
   bestScore: {fileID: 1021069776}
 --- !u!114 &1934834364
