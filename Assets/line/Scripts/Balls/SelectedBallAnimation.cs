@@ -9,7 +9,7 @@ public class SelectedBallAnimation : MonoBehaviour {
     private float scale = 1;
 
     [SerializeField]
-    private GameObject _clickEffict;
+    private GameObject _clickEffect;
 
   
 
@@ -20,30 +20,36 @@ public class SelectedBallAnimation : MonoBehaviour {
     }
 
     void Update() {
+
         if(up) {
+
             scale += Time.deltaTime / 3;
             if(scale >= 1) {
                 up = false;
 
                
             }
-        }else {
+        }
+
+        else {
+
             scale -= Time.deltaTime / 3;
             if(scale <= 0.8f) {
                 up = true;
-
              
             }
         }
 
-        if (_clickEffict == null)
+        if (_clickEffect == null)
             return;
 
-        _clickEffict.SetActive(true);
+        _clickEffect.SetActive(true);
+
+        disableParticle();
 
         transform.localScale = new Vector2(scale, scale);
 
-        disableParticle();
+       
 
 
 
@@ -53,9 +59,11 @@ public class SelectedBallAnimation : MonoBehaviour {
     async void disableParticle()
     {
         await Task.Delay(1000);
-        if (_clickEffict == null)
+
+        if (_clickEffect == null)
             return;
-        _clickEffict.SetActive(false);
+
+        _clickEffect.SetActive(false);
 
         
     }

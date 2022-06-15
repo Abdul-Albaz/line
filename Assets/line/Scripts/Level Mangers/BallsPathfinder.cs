@@ -98,7 +98,7 @@ public class BallsPathfinder : MonoBehaviour {
 		int numberOfBallsToCreate;
 		if(isFirstWave) {
 			numberOfBallsToCreate = _firstWaveNumber;														//This many balls will be created on the first wave
-																							//you can add the effict the first wave on this line
+																											//you can add the effict the first wave on this line
 			isFirstWave = false;
 
 			while(numberOfBallsToCreate != 0) {
@@ -419,7 +419,7 @@ Destroy(ball);
 				path[(int)Vars.ball.transform.position.x, (int)Vars.ball.transform.position.y-1]=1;
 				Vector3 postionBall = new Vector3(Vars.ball.transform.position.x, Vars.ball.transform.position.y - 1,transform.position.z);
 				Vars.ball.transform.DOMove(postionBall, _speed);
-				Debug.Log("GO UP  ");
+				Debug.Log("1 ");
 			}
 				
 			else if ((int)Vars.ball.transform.position.y+1 < path.GetLength(1) && path[(int)Vars.ball.transform.position.x, (int)Vars.ball.transform.position.y+1]==100) {
