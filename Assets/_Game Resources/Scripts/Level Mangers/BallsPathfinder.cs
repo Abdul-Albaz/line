@@ -318,15 +318,19 @@ public class BallsPathfinder : MonoBehaviour {
 		Vars.score++;
 		Vars.fields[x, y] = 0;
 		Taptic.Heavy();
-		GameObject ball = GameObject.Find("Tile" + x + "X" + y).transform.Find("Ball").gameObject;
-		ball.transform.DOScale(0f, 0.2f).OnComplete(() => {
+		try
+        {
+			GameObject ball = GameObject.Find("Tile" + x + "X" + y).transform.Find("Ball").gameObject;
+			ball.transform.DOScale(0f, 0.2f).OnComplete(() => {
 
-																		// here we can emliment the destroy effict of the five ball matching destory 	
-			//ball.GetComponent<BallExplosion>().ActivateBallExplosion();
-			Destroy(ball);
+				// here we can emliment the destroy effict of the five ball matching destory 																								//ball.GetComponent<BallExplosion>().ActivateBallExplosion();
+				Destroy(ball);
 
-		});
+			});
+		} catch (Exception ignored) { }
 	}
+
+
 
 	private bool CheckForScoreDiagonallyTraverse(int [,]m, int i, int j, int row, int col) {
 		if (i >= row || j >= col) {
@@ -353,7 +357,7 @@ public class BallsPathfinder : MonoBehaviour {
 		if(Vars.fields[i, j] != 0) {
 			if(Vars.fields[i, j] == currentCellValue) {
 				numberOfConsecutiveBalls++;
-				if(numberOfConsecutiveBalls >= 3) {								 // the number of ball you can change it to collecy score Diagonally
+				if(numberOfConsecutiveBalls >= 4) {								 // the number of ball you can change it to collecy score Diagonally
 					for (int y = 0; y < numberOfConsecutiveBalls; y++) {
 						
 					DestroyBall((i - y), (j - y),y);
