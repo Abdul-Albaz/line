@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System.Threading.Tasks;
 
 public class BallsPathfinder : MonoBehaviour {
 
@@ -18,6 +19,7 @@ public class BallsPathfinder : MonoBehaviour {
 	private int[,] placeholderBalls;
 	private int lastScore = 0;
 
+	
 	[SerializeField]
 	private float _speed=0.02f;
 
@@ -172,12 +174,8 @@ public class BallsPathfinder : MonoBehaviour {
 		return numberOfEmptyFields;
 	}
 			
-	private void DestoyBall(int x, int y) {																		//If 5 or more balls are matched, this method gets called to destory each ball
-																												// here we can emliment the destroy effict of the five ball matching destory 
-	GameObject ball = GameObject.Find("Tile" + x + "X" + y).transform.Find("Ball").gameObject;
-	ball.GetComponent<BallExplosion> ().ActivateBallExplosion();
-Destroy(ball);
-	}
+	
+
 
 	private void CreatePlaceholderBalls(int numberOfBallsToCreate) {											// This will create small placeholder balls, that will pop into real balls on the next turn
 																												// here we can add the effict when the ball  is try to appering
@@ -231,10 +229,14 @@ Destroy(ball);
 					if(Vars.fields[i,j] == currentCellValue) {
 						numberOfConsecutiveBalls++;
 						if(numberOfConsecutiveBalls >= _ballCoolectionToWin) {
-							for(int y = j - numberOfConsecutiveBalls + 1; y <= j; y++) {
-								Vars.score++;
-								Vars.fields[i,y] = 0;
-							DestoyBall(i, y);
+
+
+							int index = 0;
+							for (int y = j - numberOfConsecutiveBalls + 1; y <= j; y++) {
+
+								DestroyBall(i, y, index);
+								index++;
+
 							}
 						}
 					}else {
@@ -256,11 +258,13 @@ Destroy(ball);
 				if(Vars.fields[j,i] != 0) {
 					if(Vars.fields[j,i] == currentCellValue) {
 						numberOfConsecutiveBalls++;
-						if(numberOfConsecutiveBalls >= _ballCoolectionToWin) {                              // the number of ball you can change it to collecy score Horizontally
+						if(numberOfConsecutiveBalls >= _ballCoolectionToWin) {
+							int index = 0;// the number of ball you can change it to collecy score Horizontally
 							for (int y = j - numberOfConsecutiveBalls + 1; y <= j; y++) {
-								Vars.score++;
-								Vars.fields[y,i] = 0;
-								DestoyBall(y, i);
+								
+								DestroyBall(y, i,index);
+								index++;
+								
 							}
 						}
 
@@ -286,11 +290,14 @@ Destroy(ball);
 					if(Vars.fields[Min(Vars.fields.GetLength(0), line) - j - 1, start_col + j] == currentCellValue) {
 						numberOfConsecutiveBalls++;
 					if(numberOfConsecutiveBalls >= _ballCoolectionToWin)
-						{                                    // the number of ball you can change it to collecy score Diagonally
+						{																			 // the number of ball you can change it to collecy score Diagonally
 							for (int y = 0; y < numberOfConsecutiveBalls; y++) {
-								Vars.score++;
-								Vars.fields[Min(Vars.fields.GetLength(0), line) - j - 1 + y,start_col + j - y] = 0;
-							DestoyBall((Min(Vars.fields.GetLength(0), line) - j - 1 + y), start_col + j - y);
+								
+
+								DestroyBall((Min(Vars.fields.GetLength(0), line) - j - 1 + y), start_col + j - y, y);
+								
+
+								
 							}
 						}
 					}else {
@@ -303,6 +310,22 @@ Destroy(ball);
 			}
 		}
 
+	}
+
+	async void DestroyBall(int x,int y,int index)
+	{
+		await Task.Delay(200 * (1 + index));
+		Vars.score++;
+		Vars.fields[x, y] = 0;
+		Taptic.Heavy();
+		GameObject ball = GameObject.Find("Tile" + x + "X" + y).transform.Find("Ball").gameObject;
+		ball.transform.DOScale(0f, 0.2f).OnComplete(() => {
+
+																		// here we can emliment the destroy effict of the five ball matching destory 	
+			//ball.GetComponent<BallExplosion>().ActivateBallExplosion();
+			Destroy(ball);
+
+		});
 	}
 
 	private bool CheckForScoreDiagonallyTraverse(int [,]m, int i, int j, int row, int col) {
@@ -332,9 +355,9 @@ Destroy(ball);
 				numberOfConsecutiveBalls++;
 				if(numberOfConsecutiveBalls >= 3) {								 // the number of ball you can change it to collecy score Diagonally
 					for (int y = 0; y < numberOfConsecutiveBalls; y++) {
-						Vars.score++;
-						Vars.fields[i - y, j - y] = 0;
-					DestoyBall((i - y), (j - y));
+						
+					DestroyBall((i - y), (j - y),y);
+
 					}	
 				}
 			}else {
@@ -579,6 +602,7 @@ Destroy(ball);
 				if (iCurrent == -1)
 				return ( iMazeSolved );
 				ChangeNodeContents(iMazeSolved, iCurrent, iPath);
+				Taptic.Light();
 				Debug.Log(" stop");
 			}
 		}

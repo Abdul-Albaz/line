@@ -16,7 +16,9 @@ public class SelectedBallAnimation : MonoBehaviour {
     void OnEnable() {
         up = false;
         scale = 1;
-        
+        Taptic.Medium();
+        Debug.Log("one");
+
     }
 
     void Update() {
@@ -63,6 +65,7 @@ public class SelectedBallAnimation : MonoBehaviour {
         if (_clickEffect == null)
             return;
 
+        
         _clickEffect.SetActive(false);
 
         
