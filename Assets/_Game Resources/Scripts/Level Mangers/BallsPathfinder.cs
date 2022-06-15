@@ -316,14 +316,13 @@ public class BallsPathfinder : MonoBehaviour {
 		Vars.score++;
 		Vars.fields[x, y] = 0;
 		await Task.Delay(200 * (1 + index));
-		Taptic.Medium();
 
 		try
         {
 			GameObject ball = GameObject.Find("Tile" + x + "X" + y).transform.Find("Ball").gameObject;
-			ball.transform.DOScale(0f, 0.2f).SetEase(Ease.InBack).OnComplete(() => {																							//ball.GetComponent<BallExplosion>().ActivateBallExplosion();
+			ball.transform.DOScale(0f, 0.2f).SetEase(Ease.InBack).OnComplete(() => {
+				Taptic.Medium();
 				Destroy(ball);
-
 			});
 		} catch (Exception) { }
 	}
@@ -481,13 +480,14 @@ public class BallsPathfinder : MonoBehaviour {
 				Destroy(Vars.ball.transform.parent.transform.Find("BallPlaceholder").gameObject);
 				CreateNewBall(xTarget, yTarget);
 			}
-			CreateNewBalls();
+			
 		}else {
 			GameObject.Find("BallBlastSound").GetComponent<AudioSource> ().Play();
 			lastScore = Vars.score;
 			
 		}
-     }
+		CreateNewBalls();
+	}
 
 	public int Rows {
 		get { return RowsNumber; }
