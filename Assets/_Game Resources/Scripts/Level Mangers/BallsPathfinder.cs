@@ -69,6 +69,7 @@ public class BallsPathfinder : MonoBehaviour {
 		for (int i=0; i < Vars.fields.GetLength(0); i++) {
 			for (int j=0; j < Vars.fields.GetLength(1); j++) {
 				Vars.fields[i,j] = 0;
+
 			}
 		}
 	}
@@ -128,7 +129,7 @@ public class BallsPathfinder : MonoBehaviour {
 			CreatePlaceholderBalls(numberOfBallsToCreate);
 			if(lastScore != Vars.score) {	
 				lastScore = Vars.score;
-				GameObject.Find("BallBlastSound").GetComponent<AudioSource> ().Play();
+				
 			}
 		}	
 	}
@@ -234,9 +235,10 @@ public class BallsPathfinder : MonoBehaviour {
 
 							int index = 0;
 							for (int y = j - numberOfConsecutiveBalls + 1; y <= j; y++) {
-
+								
 								DestroyBall(i, y, index);
 								index++;
+								
 
 							}
 						}
@@ -263,7 +265,7 @@ public class BallsPathfinder : MonoBehaviour {
 							int index = 0;// the number of ball you can change it to collecy score Horizontally
 							for (int y = j - numberOfConsecutiveBalls + 1; y <= j; y++) {
 
-
+								
 								DestroyBall(y, i,index);
 								index++;
 								
@@ -296,7 +298,8 @@ public class BallsPathfinder : MonoBehaviour {
 							for (int y = 0; y < numberOfConsecutiveBalls; y++) {
 								
 								DestroyBall((Min(Vars.fields.GetLength(0), line) - j - 1 + y), start_col + j - y, y);
-							
+								
+
 							}
 						}
 					}else {
@@ -315,18 +318,20 @@ public class BallsPathfinder : MonoBehaviour {
 	{
 		Vars.score++;
 		Vars.fields[x, y] = 0;
+
 		await Task.Delay(200 * (1 + index));
 
 		try
         {
 			GameObject ball = GameObject.Find("Tile" + x + "X" + y).transform.Find("Ball").gameObject;
+			GameObject.Find("BallBlastSound").GetComponent<AudioSource>().Play();
 			ball.transform.DOScale(0f, 0.2f).SetEase(Ease.InBack).OnComplete(() => {
 				Taptic.Medium();
 				Destroy(ball);
 			});
 		} catch (Exception) { }
 	}
-
+	
 
 
 	private bool CheckForScoreDiagonallyTraverse(int [,]m, int i, int j, int row, int col) {
@@ -358,6 +363,7 @@ public class BallsPathfinder : MonoBehaviour {
 					for (int y = 0; y < numberOfConsecutiveBalls; y++) {
 						
 					DestroyBall((i - y), (j - y),y);
+						
 
 					}	
 				}
@@ -407,9 +413,14 @@ public class BallsPathfinder : MonoBehaviour {
 		int[,] path = FindPath(Vars.ballStartPosX, Vars.ballStartPosY, xTarget, yTarget);
 		if(path != null) {//Check if path to the choosen location is available
 
-		
-			Vars.ball.GetComponent<SelectedBallAnimation> ().enabled = false;
-		    Vars.ball.GetComponent<DisableTrail>().enabled = true;
+			try
+			{
+				Vars.ball.GetComponent<SelectedBallAnimation>().enabled = false;
+				Vars.ball.GetComponent<DisableTrail>().enabled = true;
+
+			}
+			catch (Exception) { }
+			
 
 			Vars.ball.transform.localScale = new Vector2(1, 1);
 			StartCoroutine(BallMovement(path, xTarget, yTarget, ballColor));//Move the ball to the choosen location
@@ -417,13 +428,13 @@ public class BallsPathfinder : MonoBehaviour {
 		}else {
 			Vars.fields[Vars.ballStartPosX, Vars.ballStartPosY] = ballColor;
 			Vars.ball.transform.parent = GameObject.Find("Tile" + Vars.ballStartPosX + "X" + Vars.ballStartPosY).transform;
-			Vars.ball.GetComponent<DisableTrail>().enabled = false;
+			//Vars.ball.GetComponent<DisableTrail>().enabled = false;
 			Vars.ball.GetComponent<BuncingBallAnimation> ().enabled = true;
 			
 			Invoke("RestartAnaimation", 0.5f);
 			GameObject.Find("NoAvailableMoveSound").GetComponent<AudioSource> ().Play();
 			
-			Debug.Log("NO PATH ");					                      // van try the animation in this line for the ball when it not find the path
+			Debug.Log("NO PATH ");																	// van try the animation in this line for the ball when it not find the path
 		}	
 	}
 
@@ -482,7 +493,7 @@ public class BallsPathfinder : MonoBehaviour {
 			}
 			
 		}else {
-			GameObject.Find("BallBlastSound").GetComponent<AudioSource> ().Play();
+			
 			lastScore = Vars.score;
 			
 		}

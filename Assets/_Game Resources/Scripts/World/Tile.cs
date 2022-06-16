@@ -43,11 +43,23 @@ public class Tile : MonoBehaviour {
             Vars.ball = transform.Find("Ball").gameObject;
             Vars.ball.GetComponent<SelectedBallAnimation> ().enabled = true;
             GameObject.Find("BallSelectSound").GetComponent<AudioSource> ().Play();
-        }else {
+        }
+
+        else {
+
             if(Vars.ballStartPosX == -1) return;
             int xPos = Int32.Parse(x);
             int yPos = Int32.Parse(y);
-            GameObject.Find("GameManager").GetComponent<BallsPathfinder> ().InitializeBallMovement(Vars.ball, xPos, yPos);
+
+            try
+            {
+                GameObject.Find("GameManager").GetComponent<BallsPathfinder>().InitializeBallMovement(Vars.ball, xPos, yPos);
+
+            }
+            catch (Exception) { }
+        }
+
+       
         } 
     }
-}
+

@@ -4,23 +4,26 @@ using UnityEngine;
 
 public class ColorLevelManger : MonoBehaviour
 {
+        public List<Color> Colours = new List<Color>();
 
-    [System.Serializable]
-    public class HanelColor
-    {
-        public int bg;
-        public int grid;
-        public int ball;
-
-
-        public static T ImportJson<T>(string path)
+        public void InitialiseColours()
         {
-            TextAsset textAsset = Resources.Load<TextAsset>("Assets/json Files/LevelColor");
-            
-            return JsonUtility.FromJson<T>(textAsset.text);
-            
+            Colours.Add(new Color(4, 26, 77));
+            Colours.Add(new Color(11, 86, 200));
+            Colours.Add(new Color(221, 44, 55));
         }
+
+        public Color PickRandomLevelColour()
+        {
+            if (Colours.Count < 1)
+            {
+                Debug.LogError($"We need at least one colour in order to pick a random colour");
+            }
+
+            int randomInt = Random.Range(0, Colours.Count);
+            return Colours[randomInt];
+        }
+
     }
 
-    
-}
+
